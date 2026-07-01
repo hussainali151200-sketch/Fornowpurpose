@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { Reveal, Stagger, StaggerItem, Counter } from "@/components/motion";
 import { CTAButton, ArrowIcon, SectionHeading, Eyebrow } from "@/components/ui";
+import { IconSignal, IconTransparency, IconPartnership, IconOutcomes } from "@/components/icons";
+import { VideoBlock } from "@/components/video-block";
 
 export const metadata: Metadata = {
   title: "About — The Managed Hiring Intelligence OS",
@@ -10,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const values = [
-  { t: "Signal over noise", d: "We replace resume guesswork with structured, comparable intelligence." },
-  { t: "Radical transparency", d: "Every score explains itself. No black boxes, ever." },
-  { t: "Managed partnership", d: "We run the hiring intelligence alongside your team." },
-  { t: "Measured outcomes", d: "Faster cycles, better hires, lower risk — proven, not promised." },
+  { t: "Signal over noise", d: "We replace resume guesswork with structured, comparable intelligence.", Icon: IconSignal },
+  { t: "Radical transparency", d: "Every score explains itself. No black boxes, ever.", Icon: IconTransparency },
+  { t: "Managed partnership", d: "We run the hiring intelligence alongside your team.", Icon: IconPartnership },
+  { t: "Measured outcomes", d: "Faster cycles, better hires, lower risk — proven, not promised.", Icon: IconOutcomes },
 ];
 
 export default function AboutPage() {
@@ -79,18 +81,28 @@ export default function AboutPage() {
         <Reveal>
           <SectionHeading eyebrow="Our Values" title="What we stand for." />
         </Reveal>
-        <Stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v) => (
-            <StaggerItem key={v.t}>
-              <div className="card-hover h-full rounded-2xl border border-black/5 bg-white p-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-aqua/15 text-aqua">✦</div>
-                <h3 className="mt-4 font-display font-bold text-navy">{v.t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-navy/55">{v.d}</p>
+            <StaggerItem key={v.t} className="h-full">
+              <div className="card-hover group flex h-full flex-col rounded-2xl border border-black/5 bg-white p-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-aqua/10 text-aqua transition-all duration-300 group-hover:scale-105 group-hover:bg-aqua group-hover:text-white">
+                  <v.Icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 font-display text-base font-bold text-navy">{v.t}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-navy/55">{v.d}</p>
               </div>
             </StaggerItem>
           ))}
         </Stagger>
       </section>
+
+      {/* Video 1 - upload /public/video1.mp4 */}
+      <VideoBlock
+        src="/video1.mp4"
+        eyebrow="Watch Our Story"
+        title="Intelligence, not intuition."
+        subtitle="A quick look at how RecruitOxide changes the hiring equation for US teams."
+      />
 
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
         <Reveal>

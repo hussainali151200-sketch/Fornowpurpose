@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 70" width="320" height="70" role="img" aria-label="RecruitOxide">
+  <g>
+    <!-- R mark with person magnifier -->
+    <g transform="translate(0,2)">
+      <circle cx="33" cy="33" r="31" fill="#ffffff" stroke="#37a8bb" stroke-width="3.5"/>
+      <text x="12" y="48" font-family="Manrope, Arial, sans-serif" font-size="42" font-weight="800" fill="#1a2e4a">R</text>
+      <circle cx="49" cy="30" r="13" fill="none" stroke="#37a8bb" stroke-width="3.5"/>
+      <circle cx="49" cy="26" r="4" fill="#1a2e4a"/>
+      <path d="M42 36 a7 5.5 0 0 0 14 0 z" fill="#1a2e4a"/>
+      <line x1="58" y1="40" x2="66" y2="50" stroke="#37a8bb" stroke-width="4.5" stroke-linecap="round"/>
+    </g>
+    <!-- Wordmark -->
+    <text x="78" y="46" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="800" fill="#1a2e4a" letter-spacing="-0.5">Recruit</text>
+    <text x="228" y="46" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="800" fill="#37a8bb" letter-spacing="-0.5">Oxide</text>
+  </g>
+</svg>

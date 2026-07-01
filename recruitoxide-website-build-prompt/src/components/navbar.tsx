@@ -34,10 +34,11 @@ export function Navbar() {
           : "bg-white"
       }`}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 lg:px-8">
         <Logo />
 
-        <div className="hidden items-center gap-1 lg:flex">
+        {/* Horizontal nav bar — visible from small-tablet width up */}
+        <div className="hidden flex-1 items-center justify-center gap-0.5 md:flex lg:gap-1">
           <div
             className="relative"
             onMouseEnter={() => setSolOpen(true)}
@@ -45,7 +46,7 @@ export function Navbar() {
           >
             <Link
               href="/solutions"
-              className="rounded-lg px-4 py-2 text-sm font-medium text-navy/70 transition-colors hover:text-navy hover:bg-navy/5"
+              className="whitespace-nowrap rounded-lg px-2.5 py-2 text-[13px] font-medium text-navy/70 transition-colors hover:text-navy hover:bg-navy/5 lg:px-4 lg:text-sm"
             >
               Solutions
             </Link>
@@ -56,9 +57,9 @@ export function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute left-1/2 top-full w-[560px] -translate-x-1/2 pt-3"
+                  className="absolute left-1/2 top-full w-[92vw] max-w-[560px] -translate-x-1/2 pt-3"
                 >
-                  <div className="bg-white grid grid-cols-2 gap-1.5 rounded-2xl border border-black/8 p-4 shadow-[0_24px_70px_-24px_rgba(12,68,95,0.18)]">
+                  <div className="bg-white grid grid-cols-1 gap-1.5 rounded-2xl border border-black/8 p-4 shadow-[0_24px_70px_-24px_rgba(12,68,95,0.18)] sm:grid-cols-2">
                     {SOLUTIONS.map((s) => {
                       const Icon = solutionIconMap[s.key];
                       return (
@@ -89,24 +90,25 @@ export function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="rounded-lg px-4 py-2 text-sm font-medium text-navy/70 transition-colors hover:text-navy hover:bg-navy/5"
+              className="whitespace-nowrap rounded-lg px-2.5 py-2 text-[13px] font-medium text-navy/70 transition-colors hover:text-navy hover:bg-navy/5 lg:px-4 lg:text-sm"
             >
               {l.label}
             </Link>
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden shrink-0 items-center gap-3 md:flex">
           <Link
             href="/book-demo"
-            className="btn-glow rounded-xl bg-navy px-5 py-2.5 text-sm font-semibold text-white hover:bg-navy-700"
+            className="btn-glow whitespace-nowrap rounded-xl bg-navy px-3.5 py-2.5 text-[13px] font-semibold text-white hover:bg-navy-700 lg:px-5 lg:text-sm"
           >
             Book Strategy Call
           </Link>
         </div>
 
+        {/* Hamburger — only on phones below md */}
         <button
-          className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 lg:hidden"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-black/10 md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -124,7 +126,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="bg-white overflow-hidden border-t border-black/5 lg:hidden"
+            className="bg-white overflow-hidden border-t border-black/5 md:hidden"
           >
             <div className="space-y-1 px-5 py-4">
               {NAV_LINKS.map((l) => (
